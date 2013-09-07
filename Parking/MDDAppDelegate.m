@@ -7,12 +7,32 @@
 //
 
 #import "MDDAppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h"
+
+// for testing only
+#import "MDDParkingSpot.h"
 
 @implementation MDDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    __block NSArray* parkingSpots;
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    [MDDParkingSpot pumpinDummyParkingSpotsWithBlock:^(NSArray *posts, NSError *error) {
+        if (error)
+        {
+            NSLog(@"something goes wrong in here. it may relates to the places-get.json file.");
+        }
+        else
+        {
+            parkingSpots = posts;
+        }
+    }];
+    
+    
     return YES;
 }
 							

@@ -34,6 +34,7 @@
 		A1785DAF17DB04F90044CC5A /* MDDAppAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1785DAE17DB04F90044CC5A /* MDDAppAPIClient.m */; };
 		A1785DB117DB07160044CC5A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1785DB017DB07160044CC5A /* CoreLocation.framework */; };
 		A1785DB317DB0AB00044CC5A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1785DB217DB0AB00044CC5A /* Security.framework */; };
+		A1785DB617DB0D180044CC5A /* places-get.json in Resources */ = {isa = PBXBuildFile; fileRef = A1785DB517DB0D180044CC5A /* places-get.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		A1785DAE17DB04F90044CC5A /* MDDAppAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDAppAPIClient.m; sourceTree = "<group>"; };
 		A1785DB017DB07160044CC5A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A1785DB217DB0AB00044CC5A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A1785DB517DB0D180044CC5A /* places-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "places-get.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		A1785D6517DAFE710044CC5A /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				A1785DB417DB0CF90044CC5A /* Resource */,
 				A1785DAC17DB04C60044CC5A /* global */,
 				A1785DA417DB03A80044CC5A /* AFNetworking */,
 				A1785D6E17DAFE710044CC5A /* MDDAppDelegate.h */,
@@ -211,6 +214,14 @@
 			name = global;
 			sourceTree = "<group>";
 		};
+		A1785DB417DB0CF90044CC5A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A1785DB517DB0D180044CC5A /* places-get.json */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +279,7 @@
 				A1785D7417DAFE710044CC5A /* Default@2x.png in Resources */,
 				A1785D7617DAFE710044CC5A /* Default-568h@2x.png in Resources */,
 				A1785D7917DAFE710044CC5A /* MainStoryboard.storyboard in Resources */,
+				A1785DB617DB0D180044CC5A /* places-get.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

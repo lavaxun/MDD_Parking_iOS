@@ -18,6 +18,9 @@
 @property (assign, nonatomic) float lng ;
 @property (strong, nonatomic) NSArray* fees ;
 
+
++ (void)pumpinDummyParkingSpotsWithBlock:(void (^)(NSArray *posts, NSError *error))block;
+
 + (void)nearestParkingSpotsWithBlock:(void (^)(NSArray *posts, NSError *error))block atCoordinate:(CLLocationCoordinate2D)coordinate withKeywords:(NSString*)searchQuery;
 
 - (id)initWithAttributes:(NSDictionary*) attributes;

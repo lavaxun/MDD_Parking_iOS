@@ -19,6 +19,40 @@
 @synthesize fees = _fees;
 
 
++ (void)pumpinDummyParkingSpotsWithBlock:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"places-get"
+                                                         ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSError *error = nil;
+    id JSON = [NSJSONSerialization JSONObjectWithData:data
+                                              options:kNilOptions
+                                                error:&error];
+    
+    if(error)
+    {
+        if(block)
+        {
+            block([NSArray array], error);
+        }
+    }
+    else
+    {
+        NSArray *parkingSpotsFromResponse = [JSON valueForKeyPath:@"results"];
+        NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[parkingSpotsFromResponse count]];
+        for (NSDictionary *attributes in parkingSpotsFromResponse) {
+            MDDParkingSpot *parkingSpot = [[MDDParkingSpot alloc] initWithAttributes:attributes];
+            [mutablePosts addObject:parkingSpot];
+        }
+        
+        if (block)
+        {
+            block([NSArray arrayWithArray:mutablePosts], nil);
+        }
+    }
+}
+
+
 + (void)nearestParkingSpotsWithBlock:(void (^)(NSArray *posts, NSError *error))block atCoordinate:(CLLocationCoordinate2D)coordinate withKeywords:(NSString*)searchQuery
 {
     NSDictionary* parameters = @{
